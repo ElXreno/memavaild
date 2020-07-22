@@ -1,0 +1,35 @@
+From 50007933e8cb011c54f262ad2442bac6d1e267f8 Mon Sep 17 00:00:00 2001
+From: ElXreno <elxreno@gmail.com>
+Date: Wed, 22 Jul 2020 19:57:27 +0300
+Subject: [PATCH] rpm: drop not required sections from install
+
+---
+ Makefile | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 0815bad..83e1b38 100644
+--- a/Makefile
++++ b/Makefile
+@@ -13,9 +13,6 @@ base:
+ 	install -d $(DESTDIR)$(SBINDIR)
+ 	install -m0755 memavaild $(DESTDIR)$(SBINDIR)/memavaild
+ 
+-	install -d $(DESTDIR)$(DOCDIR)
+-	install -m0644 README.md $(DESTDIR)$(DOCDIR)/README.md
+-
+ units:
+ 	install -d $(DESTDIR)$(SYSTEMDUNITDIR)
+ 
+@@ -32,7 +29,7 @@ chcon:
+ daemon-reload:
+ 	-systemctl daemon-reload
+ 
+-install: base units chcon daemon-reload
++install: base units
+ 
+ uninstall-base:
+ 	rm -fv $(DESTDIR)$(SBINDIR)/memavaild
+-- 
+2.26.2
+
