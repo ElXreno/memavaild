@@ -1,4 +1,4 @@
-From e096a7f4bc817744dc4dece040fc9fdc5f3ab430 Mon Sep 17 00:00:00 2001
+From 9a6ef5bf47738e35b97f60e935d478b202f85945 Mon Sep 17 00:00:00 2001
 From: ElXreno <elxreno@gmail.com>
 Date: Wed, 22 Jul 2020 19:57:27 +0300
 Subject: [PATCH] rpm: drop not required sections from install
@@ -9,20 +9,20 @@ Signed-off-by: ElXreno <elxreno@gmail.com>
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 196ef0b..18b89c7 100644
+index e78897b..93b7733 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -13,9 +13,6 @@ base:
+@@ -16,9 +16,6 @@ base:
  	install -d $(DESTDIR)$(SBINDIR)
  	install -m0755 memavaild $(DESTDIR)$(SBINDIR)/memavaild
  
 -	install -d $(DESTDIR)$(DOCDIR)
 -	install -m0644 README.md $(DESTDIR)$(DOCDIR)/README.md
 -
- units:
- 	install -d $(DESTDIR)$(SYSTEMDUNITDIR)
+ 	install -d $(DESTDIR)$(SYSCONFDIR)
  
-@@ -36,7 +33,7 @@ chcon:
+ 	sed "s|:TARGET_DATADIR:|$(DATADIR)|" \
+@@ -52,7 +49,7 @@ chcon:
  daemon-reload:
  	-systemctl daemon-reload
  
