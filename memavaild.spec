@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           memavaild
-Version:        0.4.1
+Version:        0.5
 Release:        1%{?dist}
 Summary:        Improve responsiveness during intense swapping: keep amount of available memory
 
@@ -61,6 +61,9 @@ Improve responsiveness during intense swapping: keep amount of available memory.
 
 
 %changelog
+* Wed Sep 16 2020 ElXreno <elxreno@gmail.com> - 0.5-1
+- Update to version 0.5
+
 * Wed Aug 05 2020 ElXreno <elxreno@gmail.com> - 0.4.1-1
 - Update to version 0.4.1
 
